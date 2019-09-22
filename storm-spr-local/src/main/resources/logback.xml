@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<configuration>
+	<!-- 定义常量 -->
+	
+	<!--  本机测试环境  -->
+	<property name="log_dir" value="D:/logback_log_fold/logs/settlement" />
+	
+	
+	<property name="maxHistory" value="90" />
+	<property name="appName" value="storm_local" />
+	
+	<timestamp key="bydate" datePattern="yyyy-MM-dd" />
+
+	<!-- 定义控制台打印 -->
+	<appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+		<encoder>
+			<pattern>%d{yyyy-MM-dd HH:mm:ss.SSS}  %-5level %logger -- %msg%n</pattern>
+		</encoder>
+	</appender>
+	
+	<!-- 定义日志文件输出 -->
+	<appender name="error" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<filter class="ch.qos.logback.classic.filter.LevelFilter">
+			<level>ERROR</level>
+			<onMatch>ACCEPT</onMatch>
+			<onMismatch>DENY</onMismatch>
+		</filter>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<fileNamePattern>${log_dir}/%d{yyyy-MM-dd}/${appName}.error.log</fileNamePattern>
+			<maxHistory>${maxHistory}</maxHistory>
+		</rollingPolicy>
+		<encoder>
+			<pattern>%d{yyyy-MM-dd HH:mm:ss.SSS}  %-5level %logger -- %msg%n</pattern>
+		</encoder>
+	</appender>
+	
+	<appender name="debug" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<filter class="ch.qos.logback.classic.filter.LevelFilter">
+			<level>DEBUG</level>
+			<onMatch>ACCEPT</onMatch>
+			<onMismatch>DENY</onMismatch>
+		</filter>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<fileNamePattern>${log_dir}/%d{yyyy-MM-dd}/${appName}.debug.log</fileNamePattern>
+			<maxHistory>${maxHistory}</maxHistory>
+		</rollingPolicy>
+		<encoder>
+			<pattern>%d{yyyy-MM-dd HH:mm:ss.SSS}  %-5level %logger -- %msg%n</pattern>
+		</encoder>
+	</appender>
+	
+	<logger name="com.banling" level="DEBUG" additivity="false">
+		<appender-ref ref="STDOUT" />
+		<appender-ref ref="error" />
+		<appender-ref ref="debug" />
+	</logger>
+	
+	
+	<root level="INFO">
+		<appender-ref ref="STDOUT" />
+		<appender-ref ref="error" />
+		<appender-ref ref="debug" />
+	</root>
+
+</configuration>
