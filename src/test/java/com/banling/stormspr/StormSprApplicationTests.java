@@ -1,4 +1,4 @@
-package com.banling.stormsprlocal;
+package com.banling.stormspr;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -7,7 +7,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class StormSprLocalApplicationTests {
+public class StormSprApplicationTests {
 
 	@Test
 	public void contextLoads() {
