@@ -16,6 +16,12 @@ public class NumInServiceImpl implements NumInService {
 	@Override
 	public synchronized int getNum() {
 		// TODO Auto-generated method stub
+		try {
+			Thread.sleep(100);//产生数据不要太快了
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		if(cur_num<=MAX_NUM) {
 			return cur_num++;
 		}else {

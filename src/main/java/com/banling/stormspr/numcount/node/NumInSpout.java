@@ -55,8 +55,8 @@ public class NumInSpout extends BaseRichSpout {
 	public Map<String, Object> getComponentConfiguration() {
 		
 		Map<String, Object> map=new HashMap<String, Object>();
-		//仅仅是测试，因此不要跑得太快了，设置为每50ms发送一次数据
-		map.put("topology.sleep.spout.wait.strategy.time.ms", 50);
+		//仅仅是测试，因此不要跑得太快了，设置为每100ms发送一次数据
+		map.put("topology.sleep.spout.wait.strategy.time.ms", 100);
 	    return map;
 	}
 }

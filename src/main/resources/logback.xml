@@ -4,7 +4,7 @@
 	<!-- 定义常量 -->
 	
 	<!--  本机测试环境  -->
-	<property name="log_dir" value="D:/logback_log_fold/logs/settlement" />
+	<property name="log_dir" value="D:/logback_log_fold/logs/storm_spr_local" />
 	
 	
 	<property name="maxHistory" value="90" />

@@ -23,7 +23,7 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter</artifactId>
 			<exclusions>
-				<exclusion>  <!--有且只有两种方式：1、仅排除starter的log，保留Storm的log。  2、同时排除starter的log与Storm的log 。 建议选用第2种方式 -->    
+				<exclusion>  <!--有且只有两种方式：1、仅排除starter的log，保留Storm的log。  2、同时排除starter的log与Storm的log 。测试环境建议选用第2种方式 -->    
 					<groupId>org.apache.logging.log4j</groupId>
 					<artifactId>log4j-to-slf4j</artifactId>
 				</exclusion>
